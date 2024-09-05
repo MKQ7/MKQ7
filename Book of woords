@@ -1,0 +1,66 @@
+# Spanish-English Word Book
+
+word_book = {}
+
+# Function to add a word pair
+def add_word(spanish, english):
+    word_book[spanish] = english
+    print(f"Added: {spanish} -> {english}")
+
+# Function to search for a word
+def search_word(spanish):
+    if spanish in word_book:
+        print(f"The English translation of '{spanish}' is '{word_book[spanish]}'.")
+    else:
+        print(f"'{spanish}' not found in the word book.")
+
+# Function to delete a word pair
+def delete_word(spanish):
+    if spanish in word_book:
+        del word_book[spanish]
+        print(f"Deleted the word pair '{spanish}'.")
+    else:
+        print(f"'{spanish}' not found in the word book.")
+
+# Function to display all word pairs
+def display_words():
+    if word_book:
+        print("\n--- Spanish-English Word Book ---")
+        for spanish, english in word_book.items():
+            print(f"{spanish} -> {english}")
+    else:
+        print("The word book is empty.")
+
+# Main Program
+while True:
+    print("\nMenu:")
+    print("1. Add a word pair")
+    print("2. Search for a word")
+    print("3. Delete a word pair")
+    print("4. Display all words")
+    print("5. Exit")
+    
+    choice = input("Enter your choice (1-5): ")
+    
+    if choice == "1":
+        spanish = input("Enter the Spanish word: ")
+        english = input("Enter the English translation: ")
+        add_word(spanish, english)
+    
+    elif choice == "2":
+        spanish = input("Enter the Spanish word to search: ")
+        search_word(spanish)
+    
+    elif choice == "3":
+        spanish = input("Enter the Spanish word to delete: ")
+        delete_word(spanish)
+    
+    elif choice == "4":
+        display_words()
+    
+    elif choice == "5":
+        print("Exiting the program.")
+        break
+    
+    else:
+        print("Invalid choice. Please try again.")
